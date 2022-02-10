@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "web-perf-tools"
+version = "0.1.0"
+description = ""
+authors = ["Carlos Kidman <ckidman@qualiti.ai>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pyleniumio = "^1.14.1"
+pytest-repeat = "^0.9.1"
+matplotlib = "^3.5.1"
+pandas = "^1.4.0"
+ipykernel = "^6.9.0"
+plotly = "^5.6.0"
+nbformat = "^5.1.3"
+
+[tool.poetry.dev-dependencies]
+black = "^22.1.0"
+flake8 = "^4.0.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

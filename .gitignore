@@ -1,3 +1,12 @@
+# Test Results
+assets
+test_results
+report.html
+results.csv
+
+# Other
+poetry.lock
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
