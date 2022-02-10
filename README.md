@@ -1,5 +1,7 @@
 # Capture Web Performance Metrics
 
+A collection of scripts, tests, and tools to capture web performance metrics.
+
 - [Setup](#setup)
 - [Run Tests to Capture Metrics](#run-tests-to-capture-metrics)
 - [Visualize the Results with Graphs](#visualize-the-results-with-graphs)
@@ -59,6 +61,8 @@ Once the tests are complete, it will generate a `results.csv` file (or whatever 
 > NOTE: This file will be overriden each time you run the tests, so move or rename it if you want to keep it.
 
 ## Visualize the Results with Graphs
+
+![Bar Chart showing Web Performance Metrics](plotly-graph-example.png)
 
 Qualiti may ask you to send different `results.csv` files for different test runs and environments. However, we have provided a couple ways for you to visualize the results as well:
 
