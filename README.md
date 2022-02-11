@@ -62,7 +62,7 @@ Once the tests are complete, it will generate a `results.csv` file (or whatever 
 
 ## Visualize the Results with Graphs
 
-![Bar Chart showing Web Performance Metrics](plotly-graph-example.png)
+![Bar Chart showing Web Performance Metrics](plotly-example-graph.png)
 ![Line Chart showing Web Performance Metrics](matplotlib-graph.png)
 
 Qualiti may ask you to send different `results.csv` files for different test runs and environments. However, we have provided a couple ways for you to visualize the results as well:
