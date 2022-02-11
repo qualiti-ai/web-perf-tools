@@ -39,7 +39,7 @@ A collection of scripts, tests, and tools to capture web performance metrics.
 ## Run Tests to Capture Metrics
 
 ```bash
-poetry run pytest --csv <name>.csv --count <count> -n <number> --url <url> -k web_performance_metrics
+poetry run pytest --csv=<name>.csv --count <count> -n <number> --url <url> -k web_performance_metrics
 ```
 
 - Replace `<name>` with the **filename** you want to save the results to.
@@ -51,7 +51,7 @@ poetry run pytest --csv <name>.csv --count <count> -n <number> --url <url> -k we
 For example:
 
 ```bash
-poetry run pytest --csv results.csv --count 6 -n 3 --url https://google.com -k web_performance_metrics
+poetry run pytest --csv=results.csv --count 6 -n 3 --url https://google.com -k web_performance_metrics
 ```
 
 > This will run the test 6 times and use 3 separate browsers at the same time.
@@ -63,6 +63,7 @@ Once the tests are complete, it will generate a `results.csv` file (or whatever 
 ## Visualize the Results with Graphs
 
 ![Bar Chart showing Web Performance Metrics](plotly-graph-example.png)
+![Line Chart showing Web Performance Metrics](matplotlib-graph.png)
 
 Qualiti may ask you to send different `results.csv` files for different test runs and environments. However, we have provided a couple ways for you to visualize the results as well:
 

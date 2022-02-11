@@ -8,18 +8,18 @@ df["TEST ID"] = [x for x in range(0, len(df))]
 fig = go.Figure(
     data=[
         go.Bar(
-            name="Page Load Time (ms)",
+            name="Qualiti Scripts Duraction (ms)",
             x=df["TEST ID"],
-            y=df["PAGE LOAD TIME (ms)"],
+            y=df["QUALITI SCRIPTS DURATION"],
         ),
         go.Bar(
-            name="Qualiti Scripts Duration (ms)",
+            name="First Contentful Paint (ms)",
             x=df["TEST ID"],
-            y=df["SCRIPT DURATION (ms)"],
+            y=df["FIRST CONTENTFUL PAINT"],
         ),
+        go.Bar(name="Page Load Time (ms)", x=df["TEST ID"], y=df["PAGE LOAD TIME"]),
     ]
 )
 
-# Change the bar mode
 fig.update_layout(barmode="group", title_text="Web Performance Metrics")
 fig.show()

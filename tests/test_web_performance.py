@@ -3,7 +3,13 @@ import pytest
 import csv
 
 
-HEADERS = ["NAME", "SCRIPT DURATION (ms)", "PAGE LOAD TIME (ms)"]
+HEADERS = [
+    "NAME",
+    "QUALITI SCRIPTS DURATION",
+    "TOTAL SCRIPTS DURATION",
+    "FIRST CONTENTFUL PAINT",
+    "PAGE LOAD TIME",
+]
 ROWS = []
 
 
@@ -27,8 +33,25 @@ def test_web_performance_metrics(py: Pylenium, start, request, save_results):
 
     # 2. Extract and transform metrics as needed
     name = request.node.name
-    page_load_time = metrics.page_load_time()
     qualiti_scripts_duration = sum([x.duration for x in qualiti_resources])
+    total_scripts_duration = sum([x.duration for x in metrics.resources])
+    first_contentful_paint = metrics.time_to_first_contentful_paint()
+    page_load_time = metrics.page_load_time()
 
     # 3. Add metrics to results list
-    ROWS.append([name, qualiti_scripts_duration, page_load_time])
+    ROWS.append(
+        [
+            name,
+            qualiti_scripts_duration,
+            total_scripts_duration,
+            first_contentful_paint,
+            page_load_time,
+        ]
+    )
+
+
+def test_foo(py: Pylenium, start):
+    # 1. Visit URL and capture performance metrics
+    start("https://www.drivingsales.com/hcm")
+    metrics = py.performance.get()
+    assert metrics
