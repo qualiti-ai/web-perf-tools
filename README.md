@@ -81,12 +81,16 @@ Start at the top and run each cell. You can edit or add cells however you'd like
 ### Run main script
 
 ```bash
-poetry run python main.py
+poetry run python main.py <filepath>
 ```
 
-By default, this will look for a `results.csv` file at the Project Root and use that to create a bar chart.
+> By default, this will look for a `results.csv` file at the Project Root and use that to create a bar chart.
 
-If your results file has a different name, then change the name in `main.py`, save the file, and run the script again.
+Change `<filepath>` with the actual file path of the results CSV you want to plot. For example:
+
+```bash
+poetry run python main.py community.csv
+```
 
 ## Submit Bugs or Requests
 
