@@ -50,8 +50,34 @@ def test_web_performance_metrics(py: Pylenium, start, request, save_results):
     )
 
 
-def test_foo(py: Pylenium, start):
-    # 1. Visit URL and capture performance metrics
+def test_login_example(py: Pylenium, start, request, save_results):
+    # 1. Visit starting URL
     start("https://www.drivingsales.com/hcm")
+
+    # 2. Login or navigate as needed
+    py.getx("//*[text()='Login']").click()
+    py.getx("//*[.='Email']//input").type("email")
+    py.getx("//*[.='Password']//input").type("password")
+    py.getx("//button[.='LOGIN']").click()
+
+    # 3. Capture performance metrics on the page you care about
     metrics = py.performance.get()
-    assert metrics
+    qualiti_resources = [x for x in metrics.resources if "qualiti.ai" in x.name]
+
+    # 4. Extract and transform metrics as needed
+    name = request.node.name
+    qualiti_scripts_duration = sum([x.duration for x in qualiti_resources])
+    total_scripts_duration = sum([x.duration for x in metrics.resources])
+    first_contentful_paint = metrics.time_to_first_contentful_paint()
+    page_load_time = metrics.page_load_time()
+
+    # 5. Add metrics to results list
+    ROWS.append(
+        [
+            name,
+            qualiti_scripts_duration,
+            total_scripts_duration,
+            first_contentful_paint,
+            page_load_time,
+        ]
+    )
